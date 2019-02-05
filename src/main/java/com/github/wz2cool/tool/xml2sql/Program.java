@@ -1,12 +1,13 @@
 package com.github.wz2cool.tool.xml2sql;
 
+import com.github.wz2cool.tool.xml2sql.model.DatabaseInfo;
 import com.github.wz2cool.tool.xml2sql.model.DbTable;
 import com.github.wz2cool.tool.xml2sql.service.Xml2SqlService;
 
 public class Program {
 
-    private static String xmlFilePath = "E:\\Downloads\\baidu\\math.stackexchange.com\\Tags.xml";
-    private static String sqlFilePath = "E:\\exportSql\\Tags.xml";
+    private static String xmlFilePath = "E:\\Downloads\\baidu\\math.stackexchange.com\\Comments.xml";
+    private static String sqlFilePath = "E:\\exportSql\\Users.sql";
 
     public static void main(String[] args) throws Exception {
       /*  System.out.println("hello world");
@@ -14,7 +15,13 @@ public class Program {
         readXml();
         System.out.println("read completed");*/
 
-        Xml2SqlService.xmlToSql(xmlFilePath, sqlFilePath);
+        DatabaseInfo info = new DatabaseInfo();
+        info.setDatabaseUrl("jdbc:mysql://127.0.0.1:3306/math_stackexchange");
+        info.setPassword("innodealing");
+        info.setUsername("root");
+
+        Xml2SqlService.xmlToDb(xmlFilePath, info);
+        System.out.println("ffffffff");
 
     }
 
