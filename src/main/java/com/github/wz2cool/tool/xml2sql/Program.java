@@ -6,6 +6,7 @@ import com.github.wz2cool.tool.xml2sql.service.Xml2SqlService;
 public class Program {
 
     private static String xmlFilePath = "E:\\Downloads\\baidu\\math.stackexchange.com\\Tags.xml";
+    private static String sqlFilePath = "E:\\exportSql\\Tags.xml";
 
     public static void main(String[] args) throws Exception {
       /*  System.out.println("hello world");
@@ -13,7 +14,7 @@ public class Program {
         readXml();
         System.out.println("read completed");*/
 
-        DbTable dbTable = Xml2SqlService.generateDbTableByXml(xmlFilePath, 10000);
+        Xml2SqlService.xmlToSql(xmlFilePath, sqlFilePath);
 
     }
 
